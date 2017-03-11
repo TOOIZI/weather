@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Tooizi2yrs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <input name="clouds" id="cloud" type="text">
+            <input type="button" id="showImg" value="Show">
+        </div>
+        <img src='blank.png' alt="" id='cloudsimg'>
+        <div>
+            <script>
+                $('#showImg').click(function(){
+                    var clouds = $('#cloud').val();
+                    var img = "";
+                    if(clouds >0 && clouds<=20) img = 'sunny.png';
+                    else if(clouds >20 && clouds<=40) img = 'partly_cloudy.png';
+                    else if(clouds >40 && clouds<=60) img = 'quite_cloudy.png';
+                    else if(clouds <0 || clouds >100) {img = 'blank.png'; alert("Percentage must be between 0 and 100 only!");}
+                    else img = 'cloudy.png';
+                    $('#cloudsimg').attr("src", img);
+                });
+            </script>
+        </div>
+    </body>
+</html>

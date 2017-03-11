@@ -22,6 +22,13 @@ $weatherObj = json_decode($json);
     <tr>
         <td>Облачность</td>
         
-        <td><?= $weatherObj->clouds->all; ?>%</td>
+        <td><?= $weatherObj->clouds->all; ?>% </td>
+        <?php $clouds = $weatherObj->clouds->all;
+        if($clouds <=20) {$image = sunny;}
+        else if($clouds >20 && $clouds <40) {$image = partly_cloudy;}
+        else if($clouds >40 && $clouds <60) {$image = quite_cloudy;}
+        else {$image = cloudy;}
+        ?>
+    <img src="<?=$image?>.png">
     </tr>
 </table>
